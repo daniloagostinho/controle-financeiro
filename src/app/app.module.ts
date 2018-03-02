@@ -4,16 +4,20 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CadastroUsuariosComponent } from './cadastro-usuarios/cadastro-usuarios.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CadastroUsuariosComponent
+    CadastroUsuariosComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
