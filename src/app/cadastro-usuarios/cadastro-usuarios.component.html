@@ -7,51 +7,53 @@
 
   <div class="row">
     <div class="col-12 mx-auto col-md-6">
-      <form #heroForm="ngForm" *ngIf="!sucesso" (ngSubmit)="enviar()">
+      <form #contatoForm="ngForm" (ngSubmit)="cadastrarUsuario(contatoForm)">
 
         <div class="form-group">
           <label for="nome">Nome</label>
-          <input type="text" #nome="ngModel" (keyup)="textoDigitado(texto.value)" class="form-control" id="nome" name="nome" [(ngModel)]="cadastros.nome"
+          <input type="text" ngModel class="form-control" id="nome" name="nome"
             required>
         </div>
 
-        <div [hidden]="nome.valid || nome.pristine" class="alert alert-danger">
+        <!-- <div [hidden]="nome.valid || nome.pristine" class="alert alert-danger">
           Preencha o campo nome
-        </div>
+        </div> -->
 
         <div class="form-group">
           <label for="email">Email</label>
-          <input #email="ngModel" type="email" class="form-control" id="email" name="email" ([ngModel])="cadastro.email" aria-describedby="emailHelp"
-            [(ngModel)]="cadastros.email" required>
+          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" [(ngModel)]="cadastros.email"
+            required>
         </div>
 
-        <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+        <!-- <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
           Preencha o campo email
-        </div>
+        </div> -->
 
         <div class="form-group">
           <label for="login">Login</label>
-          <input type="text" #login="ngModel" class="form-control" id="login" name="login" ([ngModel])="cadastro.login" placeholder="Digite seu login"
-            [(ngModel)]="cadastros.login" required>
+          <input type="text" class="form-control" id="login" name="login" placeholder="Digite seu login" [(ngModel)]="cadastros.login"
+            required>
           <small id="emailHelp" class="form-text text-muted">Crie seu login de acesso ao sistema</small>
         </div>
 
-        <div [hidden]="login.valid || login.pristine" class="alert alert-danger">
+        <!-- <div [hidden]="login.valid || login.pristine" class="alert alert-danger">
           Preencha o campo login
-        </div>
+        </div> -->
 
         <div class="form-group">
           <label for="login">Senha</label>
-          <input type="text" #senha="ngModel" class="form-control" id="senha" name="senha" ([ngModel])="cadastro.login" placeholder="Digite seu login"
-            [(ngModel)]="cadastros.senha" required>
+          <input type="text"  class="form-control" id="senha" name="senha" placeholder="Digite seu login" [(ngModel)]="cadastros.senha"
+            required>
           <small id="emailHelp" class="form-text text-muted">Crie seu login de acesso ao sistema</small>
         </div>
 
-        <div [hidden]="senha.valid || senha.pristine" class="alert alert-danger">
+        <!-- <div [hidden]="senha.valid || senha.pristine" class="alert alert-danger">
           Preencha o campo senha
-        </div>
+        </div> -->
 
-        <button class="btn btn-primary float-right" (click)="onClickMe($event)">Registrar</button>
+        <button class="btn voltar" (click)="goHome()">voltar</button>
+
+        <button type="submit" class="btn btn-primary float-right" [disabled]="!contatoForm.form.valid">Registrar</button>
         {{clickMessage}}
       </form>
     </div>
@@ -65,7 +67,4 @@
       </div>
     </div>
   </div>
-  <nav>
-    <a routerLink="/login">Login</a>
-  </nav>
 </div>

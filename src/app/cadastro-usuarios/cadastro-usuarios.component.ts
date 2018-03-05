@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { Cadastro } from './../models/cadastro';
 
+import { NgForm } from '@angular/forms';
+
 @Component({
   selector: 'app-cadastro-usuarios',
   templateUrl: './cadastro-usuarios.component.html',
@@ -12,33 +14,33 @@ export class CadastroUsuariosComponent implements OnInit {
   titulo = 'Cadastro de usuário';
 
   sucesso: boolean;
-
+  convertida;
   cadastros = new Cadastro('carlos', 'carlos@gmail.com', 'calorsilva', 'digite sua senha');
 
-  enviado = false;
+  constructor() {
 
-  onSubmit() { this.enviado = true; }
+  }
 
-  clickMessage  = '';
-  valor = '';
+  get diagnostic() { return JSON.stringify(this.cadastros); }
 
-  constructor() {  
+  cadastrarUsuario(form: NgForm) {
 
-   }
+    this.convertida = JSON.stringify(form.value);
 
-   get diagnostic() { return JSON.stringify(this.cadastros); }
+    this.cadastros = this.convertida;
 
-   onClickMe(event: Event): void {
-     this.clickMessage  = 'dadsadsa';
-     event.preventDefault();
-   }
+    if(this.convertida) {
+      console.log('cadastrado com sucesso!!');
+      localStorage.setItem("respostas", this.convertida);
+    }else {
+      console.log('erro ao salvar no localstora!!');
+    }
 
-   textoDigitado(valor: string) {
-    this.valor = valor;
-   }
+  }
 
   ngOnInit() {
-    console.log(this.cadastros);
+    console.log(this.convertida);
+    console.log('valor cadastro agora: ', this.cadastros )
   }
 
   enviar(evento: Event) {
@@ -49,6 +51,5 @@ export class CadastroUsuariosComponent implements OnInit {
   debug(): string {
     return JSON.stringify(this.cadastros);
   }
-
 
 }
