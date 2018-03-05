@@ -21,7 +21,7 @@
 
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" [(ngModel)]="cadastros.email"
+          <input type="email" ngModel class="form-control" id="email" name="email" aria-describedby="emailHelp"
             required>
         </div>
 
@@ -31,7 +31,7 @@
 
         <div class="form-group">
           <label for="login">Login</label>
-          <input type="text" class="form-control" id="login" name="login" placeholder="Digite seu login" [(ngModel)]="cadastros.login"
+          <input type="text" ngModel class="form-control" id="login" name="login" placeholder="Digite seu login"
             required>
           <small id="emailHelp" class="form-text text-muted">Crie seu login de acesso ao sistema</small>
         </div>
@@ -42,7 +42,7 @@
 
         <div class="form-group">
           <label for="login">Senha</label>
-          <input type="text"  class="form-control" id="senha" name="senha" placeholder="Digite seu login" [(ngModel)]="cadastros.senha"
+          <input type="text"  ngModel class="form-control" id="senha" name="senha" placeholder="Digite seu login"
             required>
           <small id="emailHelp" class="form-text text-muted">Crie seu login de acesso ao sistema</small>
         </div>

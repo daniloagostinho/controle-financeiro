@@ -1,3 +1,44 @@
-<p>
-  login works!
-</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-12 mx-auto col-lg-6">
+      <h1 class="text-center">{{titulo}}</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 mx-auto col-md-6">
+      <form #contatoForm="ngForm" (ngSubmit)="loginUsuario(contatoForm)">
+
+        <div class="form-group">
+          <label for="login">Login</label>
+          <input type="text" ngModel class="form-control" id="login" name="login" placeholder="Digite seu login" required>
+          <small id="emailHelp" class="form-text text-muted">Crie seu login de acesso ao sistema</small>
+        </div>
+
+
+        <div class="form-group">
+          <label for="login">Senha</label>
+          <input type="text" ngModel class="form-control" id="senha" name="senha" placeholder="Digite seu login" required>
+          <small id="emailHelp" class="form-text text-muted">Crie seu login de acesso ao sistema</small>
+        </div>
+
+
+        <div class="col-md-2 offset-8">
+          <button class="btn voltar" (click)="goHome()">voltar</button>
+
+          <button type="submit" class="btn btn-primary" [disabled]="!contatoForm.form.valid">Registrar</button>
+          {{clickMessage}}
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-6 mx-auto mt-4">
+      <div *ngIf="sucesso" class="alert alert-success" role="alert">
+        Cadastro realizado com sucesso! {{debug()}}
+      </div>
+    </div>
+  </div>
+</div>

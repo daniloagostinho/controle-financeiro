@@ -21,12 +21,9 @@ export class CadastroUsuariosComponent implements OnInit {
 
   }
 
-  get diagnostic() { return JSON.stringify(this.cadastros); }
 
   cadastrarUsuario(form: NgForm) {
-
     this.convertida = JSON.stringify(form.value);
-
     this.cadastros = this.convertida;
 
     if(this.convertida) {
